@@ -89,7 +89,7 @@
               <article class="col-md-4 col-sm-6">
                 <div class="col">
                   <div class="bien">
-                    <a href="description.php?logement={{ logement.id }}" target="_blank">
+                    <a href="{% url "accueil" %}" target="_blank">
                       <img src="{{ staticUrl }}img/logement/{{logement.src_image }}" class="img-responsive img-logement"></a>
                     <span class="bandeau"><p>LOCATION</p></span>
                   </div>
@@ -113,11 +113,6 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6 offset-md-1">
-                        <a href="index.php"><img width="45" height="51" src="../static/img/logo/logo-genos-seul.png"></a>
-                        <address>
-                            Powered by Genos.<br>
-                            Licence sous <a id="url-license" href="https://opensource.org/licenses/MIT" target="blank">MIT license</a>.<br>
-                        </address>
                         <a href="https://www.hitema.fr/"><img width="191" height="51" src="../static/img/logo/hitema.png"></a>
                         <address>
                             <a id="url-vlis" href="https://www.hitema.fr/" target="blank">HITEMA</a> ©<br>
