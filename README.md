@@ -1,1 +1,1 @@
-# python-django-camille-yvann
+# python-django-yvann
