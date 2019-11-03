@@ -531,10 +531,10 @@
 			}
 		},
 		{
-			"file": "immobilier/forms.py",
+			"file": "/C/wamp64/www/python-django-camille-yvann/application/immobilier/urls.py",
 			"settings":
 			{
-				"buffer_size": 1605,
+				"buffer_size": 390,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			}
@@ -655,6 +655,7 @@
 	"expanded_folders":
 	[
 		"/C/wamp64/www/python-django-camille-yvann/application",
+		"/C/wamp64/www/python-django-camille-yvann/application/application",
 		"/C/wamp64/www/python-django-camille-yvann/application/immobilier"
 	],
 	"file_history":
@@ -838,7 +839,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -854,8 +855,8 @@
 						"selection":
 						[
 							[
-								3359,
-								3359
+								3623,
+								3623
 							]
 						],
 						"settings":
@@ -865,40 +866,38 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1921.0,
+						"translation.y": 1576.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "immobilier/forms.py",
-					"semi_transient": true,
+					"file": "/C/wamp64/www/python-django-camille-yvann/application/immobilier/urls.py",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1605,
+						"buffer_size": 390,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								390,
+								390
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Python/Python.sublime-syntax"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -928,7 +927,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				}
 			]

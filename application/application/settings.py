@@ -77,24 +77,30 @@ WSGI_APPLICATION = 'application.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.python-django-yvann-camille'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.python-django-yvann-camille'),
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'python-django-yvann-camille',
-#         'NAME': os.path.join(BASE_DIR, 'db.python-django-yvann-camille'),
-#         'USER': 'root',
-#         'PASSWORD': '',        
-#         'HOST': '127.0.0.1',
-#         'PORT': '3306',
+#         'ENGINE': 'djongo',
+#         'NAME': 'cluster0' ,
+#         'HOST': 'mongodb://admin:admin@cluster0-vxjxs.mongodb.net' ,
+#         # 'HOST': 'mongodb://admin:admin@cluster0-vxjxs.mongodb.net/test?retryWrites=true&w=majority' ,
+#         'USER': 'admin' ,
+#         'PASSWORD': 'admin' ,
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'immobilier-djongo-yvann' ,
+    }
+}
 
 
 # Password validation

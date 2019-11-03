@@ -1,0 +1,49 @@
+{
+    "id" : 1,
+    "intitule" : "Logement1",
+    "adresse" : "4 Rue de Paris",
+    "ville" : "Paris",
+    "cp" : 75000,
+    "tel" : 627930171,
+    "type" : "Type",
+    "chambres" : 2,
+    "position" : "-1",
+    "src_image" : "logement1.jpg",
+    "equipements" : "2",
+    "description" : "Test",
+    "prix" : 100
+}
+
+/* 2 */
+{
+    "id" : 2,
+    "intitule" : "Logement2",
+    "adresse" : "4 Rue de Paris",
+    "ville" : "Paris",
+    "cp" : 75000,
+    "tel" : 627930171,
+    "type" : "Type",
+    "chambres" : 2,
+    "position" : "-1",
+    "src_image" : "logement2.jpg",
+    "equipements" : "2",
+    "description" : "Test",
+    "prix" : 1000
+}
+
+/* 3 */
+{
+    "id" : 3,
+    "intitule" : "Logement3",
+    "adresse" : "4 Rue de Paris",
+    "ville" : "Paris",
+    "cp" : 75000,
+    "tel" : 627930171,
+    "type" : "Type",
+    "chambres" : 2,
+    "position" : "-1",
+    "src_image" : "logement3.jpg",
+    "equipements" : "2",
+    "description" : "Test",
+    "prix" : 2000
+}
