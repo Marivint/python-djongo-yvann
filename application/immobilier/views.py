@@ -1,10 +1,14 @@
 from django.http import HttpResponse
+from django.contrib.auth import logout
 from django.shortcuts import render
 from .forms import RdvForm
 from django.contrib.auth import authenticate, login
 
+
 from .forms import ContactForm
 from .forms import ConnexionForm
+
+
 
 from immobilier.models import Logement
 
@@ -18,9 +22,9 @@ def connexion(request):
     if request.method == "POST":
         form = ConnexionForm(request.POST)
         if form.is_valid():
-            login = form.cleaned_data["login"]
-            mdp   = form.cleaned_data["mdp"]
-            user  = authenticate(username=login, password=mdp)  # Nous vérifions si les données sont correctes
+            logindata = form.cleaned_data["login"]
+            mdpdata   = form.cleaned_data["mdp"]
+            user  = authenticate(username=logindata, password=mdpdata)  # Nous vérifions si les données sont correctes
             if user:  # Si l'objet renvoyé n'est pas None
                 login(request, user)  # nous connectons l'utilisateur
             else: # sinon une erreur sera affichée
@@ -29,6 +33,10 @@ def connexion(request):
         form = ConnexionForm()
 
     return render(request, 'immobilier/connexion.html', locals())
+
+def deconnexion(request):
+    logout(request)
+    return render(request, 'immobilier/deconnexion.html', locals())
 
 def contact(request):
     # Construire le formulaire, soit avec les données postées,

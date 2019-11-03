@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block content %}
+
+		<div id="connexion" class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
+			<div class="container-contact2">
+				<div class="wrap-contact2">
+					{% if error %}
+					<p><strong>Utilisateur inconnu ou mauvais de mot de passe.</strong></p>
+					{% endif %}
+
+					{% if user.is_authenticated|yesno:"true,false" == "false"  %}
+
+						Vous êtes deconnecté !
+
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+{% endblock %}

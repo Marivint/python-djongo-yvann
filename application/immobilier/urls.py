@@ -7,5 +7,6 @@ urlpatterns = [
 	path('contact', views.contact, name="formulaire_contact"),
 	path('inscription', views.inscription, name="inscription"),
 	path('connexion', views.connexion, name='connexion'),
+	path('deconnexion', views.deconnexion, name='deconnexion'),
 	path('logement', views.logement, name="logement"),
 ]
