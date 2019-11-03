@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../static/css/bootstrap-select.min.css" />
+  <link rel="stylesheet" href="../static/css/animate.css" />
+  <link rel="stylesheet" href="../static/css/pretty-checkbox.min.css" />
+  <link rel="stylesheet" href="../static/css/fontawesome-all.min.css" />
+  <link rel="stylesheet" href="../static/css/linearicons.css" />
+  <link rel="stylesheet" href="../static/css/style.css" />
+  <title>{% block title %}MyHome{% endblock %}</title>
+</head>
+
+
+{% load static %}
+{% static "" as staticUrl %}
+
+<div id="loader-container">
+    <div id="loader"></div>
+</div>
+
+<body id="page-top">
+  <nav id="menu" class="navbar navbar-default fixed-top intro-animated after hidden">
+   {% block nav %}
+   
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <!-- <a class="navbar-brand page-scroll" href="#page-top"><img src="img/myhome.png" alt="Lattes theme logo">MyHome</a> -->
+                <a id="logo" class="navbar-brand page-scroll" href="index.php">MyHome</a>
+            </div>
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active mt-1" href="{% url "accueil" %}">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <li><a class="nav-link disabled mt-1" href="{% url "formulaire_contact" %}">Contact</a></li>
+            </li>                
+            <li class="nav-item">
+                <!--?php 
+                if(!empty($_SESSION['utilisateur'])){ ?>
+                    <a class="nav-link disabled mt-1"  href="moncompte.php" >Mon compte</a>
+                <?php } ?-->
+            </li>
+            <li class="nav-item btn-connexion">
+                <a class="nav-link disabled"  href="{% url "connexion" %}" >Connexion</a>
+                <a class="nav-link disabled"  href="{% url "inscription" %}" >Inscription</a>
+                <a class="nav-link disabled"  href="{% url "inscription" %}" >Déconnexion</a>
+            </li>
+        </ul>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  
+  {% endblock %}
+  </nav>
+
+  {% block header %}
+    <header>
+      <div class="container">
+            <div class="slider-container">
+              <div class="intro-text intro-animated hidden">
+                <div class="intro-lead-in">Votre maison, on la voit comme vous</div>
+                <div class="intro-heading">Explorer MyHome</div>
+              </div>
+            </div>
+      </div>
+    </header>
+  {% endblock %}
+
+
+
+   {% block content %}
+     <section id="maps">
+      <div class="row no-gutters justify-content-md-center maps-animated">
+        <div class="col-md-12 text-center">
+          <h2 class="titre">…quelques-uns de nos biens</h2>
+          <input id="maps-rechercher" class="form-control col-md-6 offset-md-3 controls" type="text" placeholder="Rechercher un bien immobilier" aria-describedby="btn-maps-rechercher">
+        </div>
+        <div class="col-md-12">
+          <!--DEBUT MAP-->
+          <div id="map"></div> 
+          <!--FIN MAP-->
+        </div>
+      </div>
+    </section>
+
+    <section id="logements">
+      <div class="container-fluid">
+         <div class="col-md-12">
+              <div class="row">
+            <!-- foreach ($liste_logements as $key => $ligne) { ?> -->
+            {% for logement in liste_logement %}
+              <article class="col-md-4 col-sm-6">
+                <div class="col">
+                  <div class="bien">
+                    <a href="description.php?logement={{ logement.id }}" target="_blank">
+                      <img src="{{ staticUrl }}img/logement/{{logement.src_image }}" class="img-responsive img-logement"></a>
+                    <span class="bandeau"><p>LOCATION</p></span>
+                  </div>
+                </div><!-- Fin de col md 12 -->
+
+                <div class="col text-center">
+                  <h3>{{ logement.titre }}</h3>
+                </div>
+              </article>
+            <!--?php } ?-->
+            {% endfor %}
+
+            </div>  <!-- Fin col-md-12 -->
+        </div> <!-- row -->
+      </div> <!-- Fin container-fluid -->
+    </section>
+
+    {% endblock %}
+
+    <footer id="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 offset-md-1">
+                        <a href="index.php"><img width="45" height="51" src="../static/img/logo/logo-genos-seul.png"></a>
+                        <address>
+                            Powered by Genos.<br>
+                            Licence sous <a id="url-license" href="https://opensource.org/licenses/MIT" target="blank">MIT license</a>.<br>
+                        </address>
+                        <a href="https://www.hitema.fr/"><img width="191" height="51" src="../static/img/logo/hitema.png"></a>
+                        <address>
+                            <a id="url-vlis" href="https://www.hitema.fr/" target="blank">HITEMA</a> ©<br>
+                            <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Tous droits réservés</a> | <a id="url-vlis" href="https://www.hitema.fr/" target="blank">Mentions Légales</a>
+                        </address>
+                    </div>
+                    <div id="newsletter" class="col-md-5">
+                        <p>Suivez l'actualité de MyHome</p>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control col-6" placeholder="Inscrivez votre adresse mail" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-info" type="button" id="button-addon2">OK</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <!-- JQUERY -->
+    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+
+    <!-- BOOTSTRAP
+    Dependence : JQUERY -->
+    <script type="text/javascript" src="../static/js/bootstrap.bundle.min.js"></script>
+
+    <!-- BOOTSTRAP-SELECT
+    Dependence : BOOTSTRAP -->
+    <script type="text/javascript" src="../static/js/bootstrap-select.min.js"></script>
+
+    <!-- VUE.JS -->
+    <script type="text/javascript" src="../static/js/vue.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo URL_HOME ?>js/vue.min.js"></script> -->
+    <script type="text/javascript" src="../static/js/vue-router.js"></script>
+
+    <!-- GSAP -->
+    <!-- <script type="text/javascript" src="<?php echo URL_HOME ?>js/gsap/TweenMax.min"></script>    -->
+
+    <!-- MOMENT -->
+    <script type="text/javascript" src="../static/js/moment.min.js"></script>
+
+    <!-- CHART 
+    Dependence : MOMENT -->
+    <script type="text/javascript" src="../static/js/chart.min.js"></script>
+
+    <!-- NOTIFY
+    Dependence : JQUERY, JS -->
+    <script type="text/javascript" src="../static/js/notify.js"></script>
+
+    <!-- JS -->
+    
+    <script type="text/javascript" src="../static/js/generale.js"></script>
+    <script type="text/javascript" src="../static/vendor/select2/select2.min.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo URL_HOME ?>js/scroller.js" async></script> -->
+
+    <!-- FILTRES -->
+    <!-- <script type="text/javascript" src="<?php echo URL_HOME ?>js/filtre/date.filtre.js""></script> -->
+
+    <!-- COMPOSANTS -->
+    <!-- <script type="text/javascript" src="<?php echo URL_HOME ?>js/composants/sondage/sondage.comp.js"></script> -->
+
+    <!-- MAPS -->
+    <script type="text/javascript" src="../static/js/maps.js"></script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDInHTnEpyec8JEe5olptD2KKWi0C822lk&libraries=places&sensor=false&callback=initAutocomplete"></script>
+</body>
+</html>
